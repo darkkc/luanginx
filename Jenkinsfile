@@ -13,6 +13,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh 'eval $(docker-machine env luanginx); \
+                 docker pull darkkc/luanginx:latest; \
                  docker stop luanginx; \
                  docker rm luanginx; \
                  docker run -d --name luanginx -p 8000:80 darkkc/luanginx:latest'
