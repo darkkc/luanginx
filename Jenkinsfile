@@ -17,7 +17,7 @@ pipeline {
                 sh 'eval $(docker-machine env luanginx); \
                  docker stop luanginx; \
                  docker rm luanginx; \
-                 docker run --name luanginx -p 8000:80 darkkc/luanginx:latest'
+                 docker run -d --name luanginx -p 8000:80 darkkc/luanginx:latest'
             }
         }
     }
