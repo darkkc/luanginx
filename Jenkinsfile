@@ -7,7 +7,8 @@ pipeline {
                 echo 'Building..'
                 sh 'export; ls -la'
                 sh 'eval $(docker-machine env luanginx)'
-                sh 'docker build .'
+                sh 'docker build . -t darkkc/luanginx:latest'
+                sh 'docker push darkkc/luanginx:latest'
             }
         }
         stage('Deploy') {
