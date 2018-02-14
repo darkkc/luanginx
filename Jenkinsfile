@@ -14,10 +14,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'eval $(docker-machine env luanginx)'
-                sh 'docker stop luanginx'
-                sh 'docker rm luanginx'
-                sh 'docker run --name luanginx -p 8000:80 darkkc/luanginx:latest'
+                sh 'eval $(docker-machine env luanginx); \
+                 docker stop luanginx; \
+                 docker rm luanginx; \
+                 docker run --name luanginx -p 8000:80 darkkc/luanginx:latest'
             }
         }
     }
