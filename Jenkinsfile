@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'export'
+                sh 'export; ls -la'
                 sh 'eval $(docker-machine env luanginx)'
                 sh 'docker build .'
             }
