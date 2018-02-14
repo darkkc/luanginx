@@ -5,15 +5,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                docker build .
+                sh 'docker build .'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                docker stop luanginx
-                docker rm luanginx
-                docker run --name luanginx -p 8000:80 darkkc/luanginx:latest
+                sh 'docker stop luanginx'
+                sh 'docker rm luanginx'
+                sh 'docker run --name luanginx -p 8000:80 darkkc/luanginx:latest'
             }
         }
     }
